@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notifi Demo</title>
+	<link rel="stylesheet" type="text/css" href="css/notifi.css">
+	<style type="text/css">
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/notifi.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('body').on('click',function(){
+				var content = 'This is a big paragraph to simulate lots of content in the notifi bar';
+				$.notifi(content,{autoHideDelay:5000});
+			});
+		});
+	</script>
+</head>
+<body>
+</body>
+</html>
