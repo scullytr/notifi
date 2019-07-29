@@ -2,7 +2,7 @@
  * jQuery Notifi Plugin v1.0
  * https://github.com/scullytr/notifi
  *
- * Copyright (c) 2015 Tim Scully;
+ * Copyright (c) 2019 Tim Scully;
  * Released under the MIT License (MIT)
  */
 (function($){
@@ -14,7 +14,7 @@
 			}).prependTo('html'),
 			noticeClose		= $(o.noticeClose),
 			noticeContent	= content || '&nbsp;',
-			notice			= $('<div>',{'class':'notice'}).addClass(o.noticeClass).append(noticeClose.addClass(o.noticeCloseClass)).prepend(noticeContent).appendTo(notificationBar);
+			notice			= $('<div>',{'class':'ntf-notice'}).addClass(o.noticeClass).append(noticeClose.addClass(o.noticeCloseClass)).prepend(noticeContent).appendTo(notificationBar);
 
 		if(o.autoShowDelay){
 			setTimeout(function(){
@@ -60,7 +60,7 @@
 		hideSpeed:			100,
 		noticeClass:		'',
 		noticeClose:		'<div>X</div>',
-		noticeCloseClass:	'notice-close',
+		noticeCloseClass:	'ntf-notice-close',
 		autoShowDelay:		0,
 		shown:				null,
 		showSpeed:			100

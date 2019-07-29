@@ -4,18 +4,60 @@
 	<title>Notifi Demo</title>
 	<link rel="stylesheet" type="text/css" href="css/notifi.css">
 	<style type="text/css">
+		html, body, .container{
+			font-family: Arial;
+			height: 100%;
+			margin: 0;
+			width: 100%;
+		}
+		.container{
+			align-items: center;
+			display: flex;
+			justify-content: space-around;
+		}
+		.click-me.notice,
+		.click-me.warning{
+			border-radius: 5px;
+			box-shadow: 0 0 5px #949394;
+			color: #ffffff;
+			cursor: pointer;
+			padding: 0.5em 1.25em;
+		}
+		.click-me.notice{
+			background-color: #1598d5;
+		}
+		.click-me.warning{
+			background-color: #d6874a;
+		}
 	</style>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/notifi.js"></script>
+	<script type="text/javascript" src="js/notifi.min.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			$('body').on('click',function(){
+			$('.click-me.notice').on('click',function(){
 				var content = 'This is a big paragraph to simulate lots of content in the notifi bar';
-				$.notifi(content,{autoHideDelay:5000});
+				$.notifi(content,{
+					autoHideDelay:5000
+				});
+			});
+			$('.click-me.warning').on('click',function(){
+				var content = 'I told you not to click me! Let this warning be a lesson to you.';
+				$.notifi(content,{
+					autoHideDelay:		5000,
+					noticeClass:		'ntf-warning'
+				});
 			});
 		});
 	</script>
 </head>
 <body>
+	<div class="container">
+		<div class="click-me notice">
+			Click me!
+		</div>
+		<div class="click-me warning">
+			Don't click me!
+		</div>
+	</div>
 </body>
 </html>

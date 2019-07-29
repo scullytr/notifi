@@ -1,8 +1,11 @@
-html, body{
-	height: 100%;
-	width: 100%;
-}
-.notice{
+/*!
+ * jQuery Notifi Plugin v1.0
+ * https://github.com/scullytr/notifi
+ *
+ * Copyright (c) 2019 Tim Scully;
+ * Released under the MIT License (MIT)
+ */
+.ntf-notice{
 	background-color: #1598d5;
 	box-shadow: 0 0 5px #949394;
 	-webkit-box-shadow: 0 0 5px #949394;
@@ -13,16 +16,16 @@ html, body{
 	padding: 10px;
 	position: relative;
 }
-.notice:not(:first-child){
+.ntf-notice:not(:first-child){
 	border-top: 1px dashed #000;
 }
-.notice:last-child{
+.ntf-notice:last-child{
 	border-radius: 0 0 5px 5px;
 }
-	.notice a, .notice a:visited{
+	.ntf-notice a, .ntf-notice a:visited{
 		color: #ffffff;
 	}
-	.notice-close{
+	.ntf-notice-close{
 		bottom: 0px;
 		cursor: pointer;
 		display: inline;
@@ -33,10 +36,10 @@ html, body{
 		right: 0px;
 		top: 0px;
 	}
-.warning{
+.ntf-warning{
 	background-color: #d6874a;
 	color: #fff;
 }
-	.warning a{
+	.ntf-warning a{
 		color: #fff;
 	}
