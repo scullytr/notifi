@@ -36,14 +36,11 @@
 		$(function() {
 			$('.click-me.notice').on('click',function(){
 				var content = 'This is a big paragraph to simulate lots of content in the notifi bar';
-				$.notifi(content,{
-					autoHideDelay:5000
-				});
+				$.notifi(content);
 			});
 			$('.click-me.warning').on('click',function(){
 				var content = 'I told you not to click me! Let this warning be a lesson to you.';
 				$.notifi(content,{
-					autoHideDelay:		5000,
 					noticeClass:		'ntf-warning'
 				});
 			});
@@ -51,6 +48,7 @@
 	</script>
 </head>
 <body>
+	<div id="ntf-notifications"></div>
 	<div class="container">
 		<div class="click-me notice">
 			Click me!
