@@ -8,10 +8,10 @@
 (function($){
 	$.notifi = function(content, options){
 		var o				= $.extend(true, {}, $.notifi.defaults, options),
-			notificationBar	= $('#notifications').length ? $('#notifications') : $('<div>', {
-				"id":		'notifications',
-				"style":	'background:transparent;position:fixed; text-align:center; width:100%; z-index:100;'
-			}).prependTo('html'),
+			notificationBar	= $('#ntf-notifications').length ? $('#ntf-notifications') : $('<div>', {
+				"id":		'ntf-notifications',
+				"style":	'background:transparent; position:fixed; text-align:center; width:100%; z-index:100;'
+			}).prependTo('body'),
 			noticeClose		= $(o.noticeClose),
 			noticeContent	= content || '&nbsp;',
 			notice			= $('<div>',{'class':'ntf-notice'}).addClass(o.noticeClass).append(noticeClose.addClass(o.noticeCloseClass)).prepend(noticeContent).appendTo(notificationBar);
@@ -29,6 +29,8 @@
 	};
 
 	$.notifi.showNotice = function(notice, o){
+		o = typeof o === "object" ? o : $.notifi.defaults;
+
 		notice.slideDown(o.showSpeed, function() {
 			if(o.shown) o.shown();
 
@@ -44,19 +46,25 @@
 
 			if(o.autoHideDelay){
 				setTimeout(function(){
-					notice.slideUp(o.hideSpeed, function(){
-						notice.remove();
-
-						if(o.hidden) o.hidden();
-					});
+					$.notifi.hideNotice(notice, o)
 				}, o.autoHideDelay);
 			}
 		});
 	};
 
+	$.notifi.hideNotice = function(notice, o){
+		o = typeof o === "object" ? o : $.notifi.defaults;
+
+		notice.slideUp(o.hideSpeed, function(){
+			notice.remove();
+
+			if(o.hidden) o.hidden();
+		});
+	};
+
 	$.notifi.defaults = {
 		hidden:				null,
-		autoHideDelay:		null,
+		autoHideDelay:		5000,
 		hideSpeed:			100,
 		noticeClass:		'',
 		noticeClose:		'<div>X</div>',

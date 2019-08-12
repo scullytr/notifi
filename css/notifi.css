@@ -43,3 +43,10 @@
 	.ntf-warning a{
 		color: #fff;
 	}
+#ntf-notifications{
+	background:transparent;
+	position:fixed;
+	text-align:center;
+	width:100%;
+	z-index:100;
+}
